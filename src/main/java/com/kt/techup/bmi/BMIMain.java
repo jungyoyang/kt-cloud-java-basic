@@ -53,7 +53,7 @@ public class BMIMain {
 		//환자 신체검사
 		nurse.collectPatientInfo(patient1);
 		//의사에게 전달
-		nurse.sendToDoctor(doctor,patient1);
+		nurse.sendToDoctor(doctor, patient1);
 
 		//의사
 		//계산후 결과 전달
@@ -63,7 +63,7 @@ public class BMIMain {
 		nurse.receiveResult(patient1, result);
 	}
 
-	public class InputUtil {
+	public static class InputUtil {
 		public static double inputHeight() {
 			//try resource 문법
 			//try(리소스선언) 사용이 끝나면 자동으로 close()호출
@@ -150,26 +150,8 @@ public class BMIMain {
 		}
 	}
 
-	public static double CalculateBmi(double height, double weight) {
-		double bmi;
-		bmi = weight / height * height;
-		return Math.floor(bmi * 10) / 10.0;
-	}
 
-	public static String Grade(double truncatedBmi) {
-		if (truncatedBmi < 18.5)
-			return "저체중";
-		else if (truncatedBmi <= 22.9)
-			return "정상";
-		else if (truncatedBmi <= 24.9)
-			return "비만전단계";
-		else if (truncatedBmi <= 29.9)
-			return "1단계비만";
-		else if (truncatedBmi <= 34.9)
-			return "2단계비만";
-		else
-			return "3단계비만";
-	}
+
 
 	// public static void printResult(String name, String gender, double height, double weight) {
 	// 	System.out.println("이름 : " + name);
@@ -245,7 +227,7 @@ public class BMIMain {
 
 		public String sendToDoctor(Doctor doctor, Patient patient) {
 			System.out.println("👩‍⚕️ 간호사: 의사에게 환자 정보를 전달합니다.");
-			return doctor.examinePatient(patient);
+			return doctor.receivePatientInfo(patient);
 		}
 
 		public void receiveResult(Patient patient, String result) {
@@ -258,6 +240,11 @@ public class BMIMain {
 	}
 
 	static class Doctor {
+		public void receivePatientInfo(Patient patient) {
+			System.out.println("👨‍⚕️ 의사: 환자 정보를 받았습니다.");
+			this.patient = patient;
+		}
+
 		public String examinePatient(Patient patient){
 			//TODO name과 gender까지 의사가 알필요없다. BMI와 GRADE를 계산해주는거만 의사가하고나머지는 넘겨서 간호사에게 맡기자
 			double height = patient.height;
