@@ -209,6 +209,7 @@ public class BMIMain {
 			this.gender = "NULL";
 			this.name = "NULL";
 		}
+
 		public void setInfo(double height, double weight, String gender, String name) {
 			this.height = height;
 			this.weight = weight;
@@ -227,15 +228,17 @@ public class BMIMain {
 		private final Scanner scanner = new Scanner(System.in);
 
 		private String name;
-		// private String gender;
-		// private double height;
-		// private double weight;
+		private String gender;
+		private double height;
+		private double weight;
+		private double bmi;
+		private String grade;
 
 		public void collectPatientInfo(Patient patient) {
 			String name = InputUtil.inputName();
 			String gender = InputUtil.inputGender();
-			// double height = InputUtil.inputHeight();
-			// double weight = InputUtil.inputWeight();
+			double height = InputUtil.inputHeight();
+			double weight = InputUtil.inputWeight();
 
 			patient.setInfo(height, weight, gender, name);
 		}
@@ -247,7 +250,10 @@ public class BMIMain {
 
 		public void receiveResult(Patient patient, String result) {
 			System.out.println("\n👤 환자: " + name + " 님에게 진단 결과를 전달합니다.");
-			System.out.println(result);
+			System.out.printf(
+				"이름: %s | 성별: %s | 키: %.1fcm | 몸무게: %.1fkg | BMI: %.1f (%s)",
+				name, gender, height, weight, bmi, grade
+			);
 		}
 	}
 
@@ -256,18 +262,16 @@ public class BMIMain {
 			//TODO name과 gender까지 의사가 알필요없다. BMI와 GRADE를 계산해주는거만 의사가하고나머지는 넘겨서 간호사에게 맡기자
 			double height = patient.height;
 			double weight = patient.weight;
-			String name = patient.name;
-			String gender = patient.gender;
+			// String name = patient.name;
+			// String gender = patient.gender;
 
 			double bmi = calculateBmi(height, weight);
 			String grade = grade(bmi);
 
-				// 진단 요약 문자열 반환
-				return String.format(
-					"이름: %s | 성별: %s | 키: %.1fcm | 몸무게: %.1fkg | BMI: %.1f (%s)",
-					name, gender, height, weight, bmi, grade
-				);
-			}
+			// BMI 결과 객체를 반환
+			return String.format("BMI: %.1f (%s)", bmi, grade);
+
+		}
 			private static double calculateBmi(double height, double weight) {
 				double bmi = weight / height * height;
 				return Math.floor(bmi * 10) / 10.0;
