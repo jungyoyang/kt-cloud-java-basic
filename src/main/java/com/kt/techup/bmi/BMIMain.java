@@ -49,23 +49,21 @@ public class BMIMain {
 		Patient patient1 = new Patient();
 		patient1.enter();
 
-		//간호사, 환자 신체검사
+		//간호사
+		//환자 신체검사
 		nurse.collectPatientInfo(patient1);
+		//의사에게 전달
+		nurse.sendToDoctor(doctor,patient1);
 
-		//
+		//의사
+		//계산후 결과 전달
 		String result = doctor.examinePatient(patient1);
 
+		//간호사, 결과 발표
 		nurse.receiveResult(patient1, result);
 	}
 
-
-	//자바에서 오류를 핸들링하는방법은 두가지가있다
-	//1. try -catch문 <- 문법
-	//2. 조건문으로 걸러내기
-
-	// spring에서는 몇가지 방법이 더있음
 	public class InputUtil {
-
 		public static double inputHeight() {
 			//try resource 문법
 			//try(리소스선언) 사용이 끝나면 자동으로 close()호출
@@ -107,7 +105,7 @@ public class BMIMain {
 				return weight;
 			} catch (IllegalArgumentException e) {
 				System.out.println("다시입력하세요. 몸무게는 2 ~ 300kg 이하로만 입력가능");
-				return inputHeight();
+				return inputWeight();
 			} finally {
 				System.out.println("몸무게 입력 종료");
 			}
@@ -140,12 +138,12 @@ public class BMIMain {
 
 				if (name.contains(" ") || name.length() < 2 || name.length() > 10) {
 					System.out.println("다시입력하세요. 이름은 공백 없이 2자 이상 10자 이하로 입력해야 합니다");
-					return inputGender();
+					return inputName();
 				}
 				return name;
 			} catch (IllegalArgumentException e) {
 				System.out.println("다시입력하세요. 이름은 공백 없이 2자 이상 10자 이하로 입력해야 합니다");
-				return inputGender();
+				return inputName();
 			} finally {
 				System.out.println("이름 입력 종료");
 			}
@@ -173,42 +171,22 @@ public class BMIMain {
 			return "3단계비만";
 	}
 
-	public static void printResult(String name, String gender, double height, double weight) {
-		System.out.println("이름 : " + name);
-		System.out.println("성별 : " + gender);
-		System.out.println("키 : " + height + " cm");
-		System.out.println("몸무게 : " + weight + " kg");
-
-		double bmi = CalculateBmi(height, weight);
-
-		System.out.println("BMI지수 : " + bmi);
-
-		String grade = Grade(bmi);
-
-		System.out.println("결과 : " + grade);
-
-	}
-
-	//BMI : Body Mass Index
-	//체질량 지수
-	// 몸무게(kg) / 키(m) * 키(m))
-	// 저체중
-	// <18.5 kg/㎡
+	// public static void printResult(String name, String gender, double height, double weight) {
+	// 	System.out.println("이름 : " + name);
+	// 	System.out.println("성별 : " + gender);
+	// 	System.out.println("키 : " + height + " cm");
+	// 	System.out.println("몸무게 : " + weight + " kg");
 	//
-	// 정상
-	// 18.5~22.9 kg/㎡
+	// 	double bmi = CalculateBmi(height, weight);
 	//
-	// 비만전단계
-	// 23~24.9 kg/㎡
+	// 	System.out.println("BMI지수 : " + bmi);
 	//
-	// 1단계 비만
-	// 25~29.9 kg/㎡
+	// 	String grade = Grade(bmi);
 	//
-	// 2단계 비만
-	// 30~34.9 kg/㎡
+	// 	System.out.println("결과 : " + grade);
 	//
-	// 3단계 비만
-	// ≥35 kg/㎡
+	// }
+
 	static class Hospital {
 		private final Doctor doctor;
 		private final Nurse nurse;
@@ -244,25 +222,20 @@ public class BMIMain {
 
 	}
 
-	//간호사(이미출근) 가 키를 물어보고
-	// 키 물어보고 이런 작업 => 간호사
-	// 몸무게 물어보고
-	// 성별 물어보고
-	// 이름 물어보고
-	// 의사(이미출근)한테 전달
 	static class Nurse {
+		//TODO scanner의 위치가 어디여야할까? 여기있어도 되지않을까?
 		private final Scanner scanner = new Scanner(System.in);
 
 		private String name;
-		private String gender;
-		private double height;
-		private double weight;
+		// private String gender;
+		// private double height;
+		// private double weight;
 
 		public void collectPatientInfo(Patient patient) {
 			String name = InputUtil.inputName();
 			String gender = InputUtil.inputGender();
-			double height = InputUtil.inputHeight();
-			double weight = InputUtil.inputWeight();
+			// double height = InputUtil.inputHeight();
+			// double weight = InputUtil.inputWeight();
 
 			patient.setInfo(height, weight, gender, name);
 		}
@@ -278,9 +251,9 @@ public class BMIMain {
 		}
 	}
 
-
 	static class Doctor {
 		public String examinePatient(Patient patient){
+			//TODO name과 gender까지 의사가 알필요없다. BMI와 GRADE를 계산해주는거만 의사가하고나머지는 넘겨서 간호사에게 맡기자
 			double height = patient.height;
 			double weight = patient.weight;
 			String name = patient.name;

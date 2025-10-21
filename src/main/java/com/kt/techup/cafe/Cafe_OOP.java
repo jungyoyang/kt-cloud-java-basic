@@ -7,7 +7,7 @@ package com.kt.techup.cafe;
 // 캐셔 - 주문받기, 음료 제공
 // 바리스타 - 음료 제조
 // 고객 - 주문, 수령
-
+ 
 import java.awt.*;
 
 public class Cafe_OOP {
