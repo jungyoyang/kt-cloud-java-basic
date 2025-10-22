@@ -2,8 +2,6 @@ package com.kt.basic.rsp;
 
 import java.util.Scanner;
 
-
-
 //플레이어는 1~3 사이의 숫자를 입력
 //1: 가위, 2:바위, 3: 보
 // 다른거 입력하면 다시입력하게
@@ -24,8 +22,10 @@ import java.util.Scanner;
 
 public class RSPMain {
 
-	public static void main(String[] args) {
 
+	static int winningstreak = 0;
+
+	public static void main(String[] args) {
 
 		//플레이어
 		//컴퓨터
@@ -34,6 +34,7 @@ public class RSPMain {
 		System.out.println("가위바위보 게임에 입장하셨습니다");
 		player1.playRSP();
 		computer1.computerturn();
+		judging(player1.playRSP(),computer1.computerturn());
 
 
 	}
@@ -78,45 +79,64 @@ public class RSPMain {
 		}
 	}
 //1:가위 2:바위 3:보
-	void judging(int a, int b){
+	static void judging(int a, int b){
 		if(a==1){
 			if(b==1){
-				System.out.println("비겼습니다.");
+				System.out.println("컴퓨터와 비겼습니다..");
 				Player.playRSP();
 				Computer.computerturn();
+				regame();
 			}
-			else if(b==2)
-				System.out.println("Computer won");
-			else
-				System.out.println("당신이 이겼습니다");
+			else if(b==2) {
+				System.out.println("당신은 컴퓨터에게 졌습니다");
+				System.out.println("당신은" +winningstreak+ "연승 했습니다");
+			}
+			else {
+				System.out.println("당신은 이겼습니다!");
+				winningstreak++;
+				regame();
+			}
 		}
 		if(a==2){
 			if(b==2){
-				System.out.println("비겼습니다.");
+				System.out.println("컴퓨터와 비겼습니다..");
 				Player.playRSP();
 				Computer.computerturn();
+				regame();
 			}
-			else if(b==3)
-				System.out.println("Computer won");
-			else
-				System.out.println("당신이 이겼습니다");
+			else if(b==3) {
+				System.out.println("당신은 컴퓨터에게 졌습니다");
+				System.out.println("당신은" +winningstreak+ "연승 했습니다");
+			}
+			else {
+				System.out.println("당신은 이겼습니다!");
+				winningstreak++;
+				regame();
+			}
 		}
 		if(a==3){
 			if(b==3){
-				System.out.println("비겼습니다.");
+				System.out.println("컴퓨터와 비겼습니다..");
 				Player.playRSP();
 				Computer.computerturn();
+				regame();
 			}
-			else if(b==1)
-				System.out.println("Computer won");
-			else
-				System.out.println("당신이 이겼습니다");
+			else if(b== 1) {
+				System.out.println("당신은 컴퓨터에게 졌습니다");
+				System.out.println("당신은" +winningstreak+ "연승 했습니다");
+			}
+			else {
+				System.out.println("당신은 이겼습니다!");
+				winningstreak++;
+				regame();
+			}
 		}
 
 	}
 
-	void regame(){
-
+	static void regame(){
+		Player.playRSP();
+		Computer.computerturn();
 	}
 }
 
