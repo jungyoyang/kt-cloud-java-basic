@@ -1,7 +1,4 @@
-package com.kt.techup;
-
-import java.util.Arrays;
-import java.util.Random;
+package com.kt.basic;
 
 public class Solution {
 	public int[] solution(int[] num_list) {

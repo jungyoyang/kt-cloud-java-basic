@@ -1,4 +1,4 @@
-package com.kt.techup.bmi;
+package com.kt.basic.bmi;
 //1. 키와 몸무게, 성별, 이름을 입력받음
 //2. BMI 지수를 계산하고
 //3. BMI 지수에 따른 결과를 출력하는 프로그램을 작성
@@ -80,7 +80,7 @@ public class BMIMain {
 				}
 				return height;
 			} catch (IllegalArgumentException e) {
-				//cath(exception의 종류)
+				//catch(exception의 종류)
 				//에러나면 처리하는 곳
 				System.out.println("다시입력하세요. 키는 10 ~ 250cm 이하로만 입력가능");
 				return inputHeight();
@@ -225,9 +225,9 @@ public class BMIMain {
 			patient.setInfo(height, weight, gender, name);
 		}
 
-		public String sendToDoctor(Doctor doctor, Patient patient) {
+		public void sendToDoctor(Doctor doctor, Patient patient) {
 			System.out.println("👩‍⚕️ 간호사: 의사에게 환자 정보를 전달합니다.");
-			return doctor.receivePatientInfo(patient);
+			doctor.receivePatientInfo(patient);
 		}
 
 		public void receiveResult(Patient patient, String result) {
@@ -242,7 +242,6 @@ public class BMIMain {
 	static class Doctor {
 		public void receivePatientInfo(Patient patient) {
 			System.out.println("👨‍⚕️ 의사: 환자 정보를 받았습니다.");
-			this.patient = patient;
 		}
 
 		public String examinePatient(Patient patient){

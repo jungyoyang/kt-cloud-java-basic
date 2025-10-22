@@ -1,4 +1,4 @@
-package com.kt.techup;
+package com.kt.basic;
 
 import java.util.Random;
 
