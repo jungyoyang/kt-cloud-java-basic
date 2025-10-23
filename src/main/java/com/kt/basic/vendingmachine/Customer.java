@@ -5,7 +5,19 @@ public class Customer {
 
 	}
 
-	moneyin
+	void infrontofmachine(){
+
+	}
+
+
+
+	void putmoneyin(int money){
+
+	}
+	void select(int a){
+
+	}
+
 
 
 
