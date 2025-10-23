@@ -51,7 +51,7 @@ public class RSPMain {
 			System.out.println("1~3 사이의 숫자를 입력해주세요");
 			System.out.println("1: 가위, 2:바위, 3: 보");
 				if (rsp !=1 && rsp !=2 && rsp !=3) {
-					System.out.println("다시입력하세요. 키는 10 ~ 250cm 이하로만 입력가능");
+					System.out.println("다시입력하세요. 1,2,3 만 입력가능");
 					return playRSP();
 				}
 			return rsp;
