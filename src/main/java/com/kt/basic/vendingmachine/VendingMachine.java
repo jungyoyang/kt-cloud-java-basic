@@ -14,7 +14,7 @@ public class VendingMachine{
 		private static int[] prices = {1000, 1200, 1300};
 	}
 	void calculate(){
-		if
+		if()
 
 			else
 	}

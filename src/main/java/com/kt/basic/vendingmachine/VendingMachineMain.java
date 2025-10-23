@@ -21,7 +21,7 @@ public class VendingMachineMain {
 		// 돈을 넣어
 		customer1.putmoneyin();
 		// 버튼을 눌러
-		customer1.select();
+		customer1.select(machine1.drinks[]);
 
 
 		// 돈이 모자르면 "돈이 부족합니다" 출력
