@@ -21,6 +21,10 @@ public class Customer {
 				System.out.println("다시입력하세요. 양수만 가능합니다");
 				return putmoneyin();
 			}
+			else if(money == -99){
+				System.out.println("관리자 모드 ON");
+			}
+			money += money;
 			return money;
 		} catch (IllegalArgumentException e) {
 			System.out.println("다시입력하세요. 양수만 가능합니다");
@@ -46,7 +50,5 @@ public class Customer {
 			}
 	}
 
-		System.out.println(money +"를 넣으셨습니다");
-		System.out.println(money);
 
 }

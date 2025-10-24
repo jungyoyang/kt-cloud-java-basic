@@ -27,6 +27,13 @@ public class VendingMachineMain {
 		// 돈이 모자르면 "돈이 부족합니다" 출력
 		// 돈이 충분하면 음료수를 주고 잔돈을 출력
 		machine1.calculate(pick);
+		machine1.takeoutcharge(int money);
+
+		//관리자가 자판기앞에선다
+		machine1.vendingview();
+
+
+
 	}
 
 
