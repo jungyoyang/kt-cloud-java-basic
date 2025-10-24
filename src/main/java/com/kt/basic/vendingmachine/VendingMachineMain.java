@@ -18,12 +18,12 @@ public class VendingMachineMain {
 		//자판기 화면 on
 		machine1.vendingview();
 
-		// 돈을 넣어
+		// 돈을 넣는다
 		customer1.putmoneyin();
+		machine1.vendingview();
+
 		// 버튼을 눌러
-		customer1.select(machine1.drinks[]);
-
-
+		customer1.select();
 		// 돈이 모자르면 "돈이 부족합니다" 출력
 		// 돈이 충분하면 음료수를 주고 잔돈을 출력
 		machine1.calculate();
