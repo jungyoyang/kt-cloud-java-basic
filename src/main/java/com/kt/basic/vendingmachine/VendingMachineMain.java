@@ -22,11 +22,11 @@ public class VendingMachineMain {
 		customer1.putmoneyin();
 		machine1.vendingview();
 
-		// 버튼을 눌러
-		customer1.select();
+		// 버튼을 누른다
+		int pick = customer1.select();
 		// 돈이 모자르면 "돈이 부족합니다" 출력
 		// 돈이 충분하면 음료수를 주고 잔돈을 출력
-		machine1.calculate();
+		machine1.calculate(pick);
 
 
 	}

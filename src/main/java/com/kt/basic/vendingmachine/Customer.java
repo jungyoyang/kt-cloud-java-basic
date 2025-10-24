@@ -3,7 +3,7 @@ package com.kt.basic.vendingmachine;
 import java.util.Scanner;
 
 public class Customer {
-	static int money;
+	static int money=0;
 
 	Customer() {
 
@@ -14,9 +14,9 @@ public class Customer {
 	}
 
 	int putmoneyin() {
+		System.out.println("돈을 얼마나 넣을까요?");
 		try (Scanner sc = new Scanner(System.in)) {
 			money = sc.nextInt();
-			System.out.println("돈을 넣어주세요");
 			if (money < 1) {
 				System.out.println("다시입력하세요. 양수만 가능합니다");
 				return putmoneyin();
