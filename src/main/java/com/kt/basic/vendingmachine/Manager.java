@@ -43,6 +43,9 @@ public class Manager {
 		System.out.println("관리자 모드");
 	}
 
+void collection(){
+
+}
 
 
 
