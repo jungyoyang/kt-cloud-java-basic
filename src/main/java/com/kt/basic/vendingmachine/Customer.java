@@ -18,16 +18,35 @@ public class Customer {
 		System.out.println("돈을 넣어주세요(양수만입력가능)");
 		try (Scanner sc = new Scanner(System.in)) {
 			money = sc.nextInt();
-			if (money < 1) {
-				System.out.println("다시입력하세요. 양수만 가능합니다");
+
+			//TODO : try catch문에서 if-else 문 사용하기
+			// if (money < 1) {
+			// 	System.out.println("다시입력하세요. 양수만 가능합니다");
+			// 	return putmoneyin();
+			// }
+			// //왜 always false?
+			// else if(money == -99){
+			// 	System.out.println("관리자 모드 ON");
+			// }
+
+			if (money == -99){
+				System.out.println("관리자 모드 ON");
+				money =0;
+				return money;
+			} else if (money<1) {
+				System.out.println("다시 입력하세요. 돈을 넣는 행위는 양수만 가능합니다");
 				return putmoneyin();
 			}
-			return money;
+			else {
+				money += money;
+				return money;
+			}
 		} catch (IllegalArgumentException e) {
 			System.out.println("다시입력하세요. 양수만 가능합니다");
 			return putmoneyin();
 		} finally {
 			System.out.println("입력 종료");
+			VendingMachine.vendingview();
 		}
 	}
 
@@ -47,7 +66,5 @@ public class Customer {
 			}
 	}
 
-		System.out.println(money +"를 넣으셨습니다");
-		System.out.println(money);
 
 }
