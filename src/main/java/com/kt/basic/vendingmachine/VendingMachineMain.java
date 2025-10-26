@@ -31,13 +31,17 @@ public class VendingMachineMain {
 
 		//관리자가 자판기앞에선다
 		// 관리자가 앞에서서 -99를 입력하면
-		customer1.putmoneyin();
+		manager1.toadminmode();
 		// 자판기의 매출을 출력하도록하고
 		machine1.adminsales();
 		// 관리자가 회수를 입력하면 매출이 초기화되고
 		// 관리자의 장부에 해당 날짜와 매출액이 기록되도록한다.
-
+		manager1.collect();
+		manager1.reset();
+		String bogo = new
 		// 관리자가 보고를 입력 하면 장부에 해당하는 내용들이 쭉 출력되도록한다.
+
+
 
 		// 자판기의 온오프버튼이 있어서 이건 관리자만 조작가능하다.
 	}
