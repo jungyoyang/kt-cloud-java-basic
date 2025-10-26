@@ -23,7 +23,7 @@ public class RSPMain {
 			System.out.println("플레이어:" + rps[playerHand]+"를 냈습니다.");
 			System.out.println("컴퓨터:" + rps[computerPick]+"를 냈습니다.");
 
-			var result = referee.judge()
+			var result = referee.judge();
 
 		}
 	}

@@ -1,6 +1,7 @@
 package com.kt.basic.vendingmachine;
 
 public class VendingMachineMain {
+	static int moneyinmachine = 0;
 
 	public static void main(String[] args) {
 
@@ -13,12 +14,11 @@ public class VendingMachineMain {
 
 		//사람이 자판기 앞에선다
 		Customer customer1 = new Customer();
-		customer1.infrontofmachine();
 
 		//자판기 화면 on
-		machine1.vendingview();
+		customer1.infrontofmachine();
 
-		// 돈을 넣는다
+		//돈을 넣는다
 		customer1.putmoneyin();
 		machine1.vendingview();
 
@@ -28,8 +28,6 @@ public class VendingMachineMain {
 		// 돈이 충분하면 음료수를 주고 잔돈을 출력
 		machine1.calculate(pick);
 	}
-
-
 
 	// 관리자가 앞에서서 -99를 입력하면
 	// 자판기의 매출을 출력하도록하고

@@ -3,18 +3,19 @@ package com.kt.basic.vendingmachine;
 import java.util.Scanner;
 
 public class Customer {
-	static int money=0;
+	static int money;
 
 	Customer() {
 
 	}
 
 	void infrontofmachine() {
+		VendingMachine.vendingview();
 
 	}
 
 	int putmoneyin() {
-		System.out.println("돈을 얼마나 넣을까요?");
+		System.out.println("돈을 넣어주세요(양수만입력가능)");
 		try (Scanner sc = new Scanner(System.in)) {
 			money = sc.nextInt();
 			if (money < 1) {
