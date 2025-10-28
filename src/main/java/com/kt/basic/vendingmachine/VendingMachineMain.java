@@ -16,8 +16,6 @@ public class VendingMachineMain {
 		customer1.infrontofmachine();
 
 		//자판기 화면 on
-		//모든 action뒤에 vendingveiw나오게 설정
-		machine1.vendingview();
 
 		// 돈을 넣는다
 		customer1.putmoneyin();

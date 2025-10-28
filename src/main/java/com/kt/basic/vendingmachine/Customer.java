@@ -21,7 +21,6 @@ public class Customer {
 
 			//TODO : try catch문에서 if-else 문 사용하기
 
-
 			// 왜 always false? 조건때문에,
 			/* if (money < 1) {
 			 	System.out.println("다시입력하세요. 양수만 가능합니다");
@@ -34,7 +33,7 @@ public class Customer {
 
 			if (money == -99){
 				System.out.println("관리자 모드 ON");
-				money =0;
+				money =0; //TODO : 재할당안하는 코드로 짜보기
 				return money;
 			} else if (money < 1) {
 				System.out.println("다시 입력하세요. 돈을 넣는 행위는 양수만 가능합니다");

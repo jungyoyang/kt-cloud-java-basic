@@ -12,7 +12,6 @@ public class Manager {
 
 	void turnon() {
 		System.out.println("밴딩머신을 시작합니다");
-
 	}
 
 	void turnoff() {
@@ -44,7 +43,6 @@ public class Manager {
 			VendingMachine.vendingview();
 		}
 	}
-	//TODO : 함수가 되지않는이유?
 	String collect() {
 		LocalDate date = LocalDate.now();
 		System.out.println(date + "매출 : " + VendingMachine.sales + "원");

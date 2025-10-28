@@ -26,20 +26,19 @@ public class VendingMachine {
 	void calculate(int pick) {
 		if (money < Drink.prices[pick]) {
 			System.out.println("돈이 부족합니다");
-			VendingMachine.vendingview();
 		} else {
 			change = money - Drink.prices[pick];
 			sales += Drink.prices[pick];
 
 			System.out.println(Drink.drinks[pick] + "이 자판기에서 나왔습니다");
 			System.out.println("남은돈은" + change + "입니다");
-			VendingMachine.vendingview();
 		}
+		VendingMachine.vendingview();
 	}
 
 	//change를 재할당하지않기위해서는 moeny와 change의 클래스를 따로만들어야할까?
 	void takeoutcharge() {
-		System.out.println("잔돈" + money + "을 반환합니다");
+		System.out.println("잔돈" + change + "을 반환합니다");
 		change = 0;
 		VendingMachine.vendingview();
 	}
@@ -58,7 +57,6 @@ public class VendingMachine {
 	void adminsales() {
 		System.out.println("지금 까지의 매출은" + sales + "원 입니다");
 	}
-
 
 
 	//TODO: 저장되는 개념을 어떻게 넣을수있을까
