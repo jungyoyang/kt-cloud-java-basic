@@ -3,23 +3,19 @@ package com.kt.basic.vendingmachine;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+//TODO : 캡슐화가 안되어있음
 public class Manager {
-	static int money = 0;
+	private int money = 0;
 
-	Manager() {
-
-	};
-
-	void turnon() {
+	public void turnon() {
 		System.out.println("밴딩머신을 시작합니다");
 	}
 
-	void turnoff() {
+	public void turnoff() {
 		System.out.println("밴딩머신을 종료합니다");
-
 	}
 
-	int toadminmode() {
+	public int toadminmode() {
 		System.out.println("돈을 넣어주세요(양수만입력가능)");
 		try (Scanner sc = new Scanner(System.in)) {
 			money = sc.nextInt();
@@ -43,14 +39,12 @@ public class Manager {
 			VendingMachine.vendingview();
 		}
 	}
-	String collect() {
+	public String collect() {
 		LocalDate date = LocalDate.now();
 		System.out.println(date + "매출 : " + VendingMachine.sales + "원");
 		return date + "매출 : " + VendingMachine.sales + "원";
 	}
-	void reset(){
+	public void reset(){
 		VendingMachine.sales = 0;
 	}
-
-
 }
