@@ -36,7 +36,7 @@ public class Manager {
 			return toadminmode();
 		} finally {
 			System.out.println("입력 종료");
-			VendingMachine.vendingview();
+			machine1.vendingview(); //이렇게 “클래스명.메서드명” 형태로 호출하면, 자바는 “static 영역에서 부르는 것”으로 간주합니다.
 		}
 	}
 	public String collect() {

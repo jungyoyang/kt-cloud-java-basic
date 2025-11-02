@@ -27,7 +27,7 @@ public class VendingMachine {
 	//TODO: money를 클래스로만들고, 계산이될때마다? NEW로 만들기?
 
 	void calculate(int pick) {
-		if (money < Drink.prices[pick]) {
+		if (Customer.money < Drink.prices[pick]) {
 			System.out.println("돈이 부족합니다");
 		} else {
 			change = money - Drink.prices[pick];

@@ -2,8 +2,9 @@ package com.kt.basic.vendingmachine;
 
 import java.util.Scanner;
 
+//TODO  : 캡슐화
 public class Customer {
-	static int money;
+	private int money;
 
 	Customer() {
 
