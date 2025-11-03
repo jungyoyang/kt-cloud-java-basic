@@ -11,11 +11,9 @@ public class VendingMachineMain {
 		//관리자가 자판기를 켠다
 		manager1.turnon();
 
-		//사람이 자판기 앞에선다
+		//사람이 자판기 앞에선다, 자판기 화면 on
 		Customer customer1 = new Customer();
-		customer1.infrontofmachine();
-
-		//자판기 화면 on
+		customer1.infrontofmachine(machine1);
 
 		// 돈을 넣는다
 		customer1.putmoneyin();
