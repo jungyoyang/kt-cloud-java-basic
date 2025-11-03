@@ -2,17 +2,14 @@ package com.kt.basic.vendingmachine;
 
 import java.util.Scanner;
 
-//TODO  : 캡슐화
 public class Customer {
 	private int money;
-
-	Customer() {
-
+//TODO: 여기부터 캡슐화안되있음
+	public Customer() {
 	}
 
-	void infrontofmachine() {
-		VendingMachine.vendingview();
-
+	void infrontofmachine(VendingMachine machine) {
+		machine.vendingview();
 	}
 
 	int putmoneyin() {
@@ -20,36 +17,34 @@ public class Customer {
 		try (Scanner sc = new Scanner(System.in)) {
 			money = sc.nextInt();
 
-			//TODO : try catch문에서 if-else 문 사용하기
-
-			// 왜 always false? 조건때문에,
-			/* if (money < 1) {
-			 	System.out.println("다시입력하세요. 양수만 가능합니다");
-			 	return putmoneyin();
-			 }
-
-			 else if(money == -99){
-			 System.out.println("관리자 모드 ON");
-			} */
-
+			/* ⛔ Old version (caused always false bug)
+			 *  조건의 순서 때문!
+			 */
+			//  if (money < 1) {
+			//  	System.out.println("다시입력하세요. 양수만 가능합니다");
+			//  	return putmoneyin();
+			//  }
+			//
+			//  else if(money == -99){
+			//  System.out.println("관리자 모드 ON");
+			// }
 			if (money == -99){
 				System.out.println("관리자 모드 ON");
-				money =0; //TODO : 재할당안하는 코드로 짜보기
-				return money;
+				return 0;
 			} else if (money < 1) {
 				System.out.println("다시 입력하세요. 돈을 넣는 행위는 양수만 가능합니다");
 				return putmoneyin();
 			}
 			else {
-				money += money;
+				VendingMachine.sales += money;
+				System.out.println(money +"원 추가");
 				return money;
 			}
 		} catch (IllegalArgumentException e) {
 			System.out.println("다시입력하세요. 양수만 가능합니다");
 			return putmoneyin();
 		} finally {
-			System.out.println("입력 종료");
-			VendingMachine.vendingview();
+			System.out.println("돈을 성공적으로 넣었습니다");
 		}
 	}
 

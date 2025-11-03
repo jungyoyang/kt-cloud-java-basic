@@ -13,10 +13,8 @@ import static com.kt.basic.vendingmachine.Customer.*;
 // 돈이 모자르면 "돈이 부족합니다" 출력
 // 돈이 충분하면 음료수를 주고 잔돈을 출력
 //TODO : 캡슐화가 안되어있음
-
 public class VendingMachine {
-	//vendingmachine은 static으로 써도되지않을까? 근데 빼보자
-	private int sales;
+	static int sales;
 	private int change;
 
 	public class Drink {
