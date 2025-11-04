@@ -24,34 +24,34 @@ public class VendingMachine {
 	}
 	//TODO: money를 클래스로만들고, 계산이될때마다? NEW로 만들기?
 
-	void calculate(int pick) {
-		if (Customer.money < Drink.prices[pick]) {
+	void calculate(int pick, Customer customer) {
+		if (customer.getMoney() < Drink.prices[pick]) {
 			System.out.println("돈이 부족합니다");
 		} else {
-			change = money - Drink.prices[pick];
+			change = customer.getMoney() - Drink.prices[pick];
 			sales += Drink.prices[pick];
 
 			System.out.println(Drink.drinks[pick] + "이 자판기에서 나왔습니다");
 			System.out.println("남은돈은" + change + "입니다");
 		}
-		vendingview();
+		vendingview(customer);
 	}
 
-	//change를 재할당하지않기위해서는 moeny와 change의 클래스를 따로만들어야할까?
-	void takeoutcharge() {
+	//TODO:change를 재할당하는 구조말고, 새롭게 new로만드는 법을 찾아보자
+	void takeoutcharge(Customer customer) {
 		System.out.println("잔돈" + change + "을 반환합니다");
 		change = 0;
-		vendingview();
+		vendingview(customer);
 	}
 
-	public void vendingview() {
+	public void vendingview(Customer customer) {
 		System.out.println("-----------------");
 		System.out.println(Drink.drinks);
 		System.out.println(Drink.prices);
 		System.out.println("-----------------");
 		System.out.println("콜라(1), 사이다(2), 환타(3)");
 		System.out.println("돈을 넣고 원하시는 음료의 번호를 입력해주세요");
-		System.out.println("현재잔액" + money);
+		System.out.println("현재잔액" + customer.getMoney());
 
 	}
 

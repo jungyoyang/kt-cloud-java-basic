@@ -4,15 +4,19 @@ import java.util.Scanner;
 
 public class Customer {
 	private int money;
+
+	public int getMoney() {
+		return money;
+	}
 //TODO: 여기부터 캡슐화안되있음
 	public Customer() {
 	}
 
-	void infrontofmachine(VendingMachine machine) {
+	public void infrontofmachine(VendingMachine machine) {
 		machine.vendingview();
 	}
 
-	int putmoneyin() {
+	public int putmoneyin() {
 		System.out.println("돈을 넣어주세요(양수만입력가능)");
 		try (Scanner sc = new Scanner(System.in)) {
 			money = sc.nextInt();
@@ -48,7 +52,7 @@ public class Customer {
 		}
 	}
 
-	int select() {
+	public int select() {
 		try (Scanner sc = new Scanner(System.in)) {
 			int pick = sc.nextInt();
 			if (pick < 1 || pick>3) {
@@ -63,6 +67,4 @@ public class Customer {
 				System.out.println("음료선택 완료");
 			}
 	}
-
-
 }

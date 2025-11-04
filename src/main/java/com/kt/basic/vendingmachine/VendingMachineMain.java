@@ -22,12 +22,12 @@ public class VendingMachineMain {
 		int pick = customer1.select();
 		// 돈이 모자르면 "돈이 부족합니다" 출력
 		// 돈이 충분하면 음료수를 주고 잔돈을 출력
-		machine1.calculate(pick);
-		machine1.takeoutcharge();
+		machine1.calculate(pick, customer1);
+		machine1.takeoutcharge(customer1);
 
-		//관리자가 자판기앞에선다
+		// 관리자가 자판기앞에선다
 		// 관리자가 앞에서서 -99를 입력하면
-		manager1.toadminmode();
+		manager1.toadminmode(machine1);
 		// 자판기의 매출을 출력하도록하고
 		machine1.adminsales();
 		// 관리자가 회수를 입력하면 매출이 초기화되고
