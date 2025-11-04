@@ -15,9 +15,7 @@ public class Manager {
 		System.out.println("밴딩머신을 종료합니다");
 	}
 
-
-	// TODO: admin모드가 애매하긴함
-	public int toadminmode(VendingMachine machine) {
+	public int toadminmode(VendingMachine machine, Customer customer) {
 		System.out.println("돈을 넣어주세요(양수만입력가능)");
 
 		try (Scanner sc = new Scanner(System.in)) {
@@ -28,17 +26,17 @@ public class Manager {
 				return money;
 			} else if (money < 1) {
 				System.out.println("다시 입력하세요. 돈을 넣는 행위는 양수만 가능합니다");
-				return toadminmode(machine);
+				return toadminmode(machine, customer);
 			} else {
 				money += money;
 				return money;
 			}
 		} catch (IllegalArgumentException e) {
 			System.out.println("다시입력하세요. 양수만 가능합니다");
-			return toadminmode(machine);
+			return toadminmode(machine, customer);
 		} finally {
 			System.out.println("입력 종료");
-			machine.vendingview(); //이렇게 “클래스명.메서드명” 형태로 호출하면, 자바는 “static 영역에서 부르는 것”으로 간주합니다.
+			machine.vendingview(customer);
 		}
 	}
 	public String collect() {
