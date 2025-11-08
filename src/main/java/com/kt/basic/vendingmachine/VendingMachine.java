@@ -55,6 +55,15 @@ public class VendingMachine {
 
 	}
 
+	public void adminview(){
+		System.out.println("-----------------");
+		System.out.println("회수 를 입력하면 매출이 초기화됩니다");
+		System.out.println("보고 를 입력하면 장부에 해당하는 내용들이 쭉 출력되도록한다");
+
+
+	}
+
+
 	void adminsales() {
 		System.out.println("지금 까지의 매출은" + sales + "원 입니다");
 	}

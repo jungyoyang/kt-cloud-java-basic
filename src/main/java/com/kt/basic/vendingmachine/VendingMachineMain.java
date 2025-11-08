@@ -40,7 +40,6 @@ public class VendingMachineMain {
 		manager1.collect();
 		manager1.reset();
 
-		-> nextInt로하는게아니라 nextline으로 받고 ㅂ반환?
 		//관리자가 보고를 입력 하면 장부에 해당하는 내용들이 쭉 출력되도록한다.
 
 
