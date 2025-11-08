@@ -1,5 +1,8 @@
 package com.kt.basic.vendingmachine;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VendingMachineMain {
 
 	public static void main(String[] args) {
@@ -31,12 +34,14 @@ public class VendingMachineMain {
 		// 자판기의 매출을 출력하도록하고
 		machine1.adminsales();
 		// 관리자가 회수를 입력하면 매출이 초기화되고
+		//TODO : scanner로 int를 받는데, 스트링도같이 받게해야하나?
 		// 관리자의 장부에 해당 날짜와 매출액이 기록되도록한다.
 		//TODO : 장부만들기
 		manager1.collect();
 		manager1.reset();
-		String bogo = new
-		// 관리자가 보고를 입력 하면 장부에 해당하는 내용들이 쭉 출력되도록한다.
+
+		-> nextInt로하는게아니라 nextline으로 받고 ㅂ반환?
+		//관리자가 보고를 입력 하면 장부에 해당하는 내용들이 쭉 출력되도록한다.
 
 
 
