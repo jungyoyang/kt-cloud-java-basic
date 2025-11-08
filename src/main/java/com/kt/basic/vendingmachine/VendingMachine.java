@@ -1,6 +1,7 @@
 package com.kt.basic.vendingmachine;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 // 배열로 음료수를 관리
 // private String[] drinks = {"콜라", "사이다", "환타"};
@@ -57,8 +58,26 @@ public class VendingMachine {
 
 	public void adminview(){
 		System.out.println("-----------------");
-		System.out.println("회수 를 입력하면 매출이 초기화됩니다");
-		System.out.println("보고 를 입력하면 장부에 해당하는 내용들이 쭉 출력되도록한다");
+		System.out.println("회수를 입력하면 매출이 초기화됩니다");
+		System.out.println("보고를 입력하면 장부에 해당하는 내용들이 쭉 출력됩니다");
+		System.out.println("-----------------");
+			try (Scanner sc = new Scanner(System.in)) {
+				String mode = sc.next(); //nextLine을 안쓴이유는 오히려 단어를 담기위해
+				if (mode == "회수") {
+					System.out.println("매출이 초기화됩니다");
+					sales = 0;
+				}
+				else if (mode == "보고") {
+					//TODO:보고부분해야함
+				}
+
+				//지피티는 else부분에 예외를 두고 catch부분에는 정말 프로그래밍적으로 예외를 두라고한다.
+			} catch (IllegalArgumentException e) {
+				System.out.println("다시입력하세요. 보고,회수 만 입력가능합니다");
+			} finally {
+				System.out.println("입력 종료");
+			}
+		}
 
 
 	}

@@ -39,6 +39,7 @@ public class Manager {
 			machine.vendingview(customer);
 		}
 	}
+
 	public String collect() {
 		LocalDate date = LocalDate.now();
 		System.out.println(date + "매출 : " + VendingMachine.sales + "원");

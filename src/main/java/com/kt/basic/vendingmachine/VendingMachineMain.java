@@ -29,16 +29,15 @@ public class VendingMachineMain {
 		machine1.takeoutcharge(customer1);
 
 		// 관리자가 자판기앞에선다
-		// 관리자가 앞에서서 -99를 입력하면
+		// 관리자가 앞에서서 -99를 입력하면 관리자모드로
+		// 들어감과동시에 자판기의 매출을 출력하도록하고
 		manager1.toadminmode(machine1, customer1);
-		// 자판기의 매출을 출력하도록하고
 		machine1.adminsales();
+		machine1.adminview();
 		// 관리자가 회수를 입력하면 매출이 초기화되고
-		//TODO : scanner로 int를 받는데, 스트링도같이 받게해야하나?
 		// 관리자의 장부에 해당 날짜와 매출액이 기록되도록한다.
 		//TODO : 장부만들기
-		manager1.collect();
-		manager1.reset();
+
 
 		//관리자가 보고를 입력 하면 장부에 해당하는 내용들이 쭉 출력되도록한다.
 
