@@ -78,11 +78,7 @@ public class VendingMachine {
 				System.out.println("입력 종료");
 			}
 		}
-
-
 	}
-
-
 	void adminsales() {
 		System.out.println("지금 까지의 매출은" + sales + "원 입니다");
 	}
